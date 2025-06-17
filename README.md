@@ -14,7 +14,7 @@ Here is a list of script files with descriptions:
 
 `1b. fit_issf_summer.R` – Fit the final iSSF for the summer season. 
 
-`1c.fit_issf_summer.R` – Fit the final iSSF for the fall season. 
+`1c. fit_issf_summer.R` – Fit the final iSSF for the fall season. 
 
 `2. simulate_from_issf.R` – Simulate a utilization distribution from the fitted spring season iSSF model. 
 
