@@ -78,7 +78,7 @@ sim_coef_ran <-
                 dplyr::mutate(index = dplyr::row_number()) %>% 
                 tidyr::pivot_longer(cols = -index, names_to = "covariate") %>% 
                   # Sets the value of random slope coefficients from movement covariates to 0
-                  dplyr::mutate(value = if_else(stringr::str_detect(covariate, "sl|cos_ta"), 0, value))) %>% 
+                  dplyr::mutate(value = dplyr::if_else(stringr::str_detect(covariate, "log_sl|cos_ta"), 0, value))) %>% 
     dplyr::mutate(dplyr::across(tidyselect::everything(), ~tidyr::replace_na(., 0))) %>% 
     dplyr::group_by(index, covariate) %>% 
     dplyr::summarize(coef = sum(value)) %>% 
