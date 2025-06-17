@@ -22,4 +22,9 @@ Here is a list of script files with descriptions:
 `3. save_final_UDs.R` – Save final utilization distributions by season, sex and disturbance scenario.
 
 
-**FINAL UTILIZATION DISTRIBUTION RASTERS ARE IN** `outputs/maps/final`
+**FINAL UTILIZATION DISTRIBUTION RASTERS ARE IN** `outputs/maps/final` 
+ 
+UD file name suffixes:  
+- "past" refers to disturbance-free scenario
+- "current" refers to current conditions
+- "future" refers to additional disturbance scenario
