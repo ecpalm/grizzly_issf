@@ -9,12 +9,13 @@ by Eric Palm, Clayton Apps, Tal Avgar, Melanie Dickie, Bruce McLellan, Joseph No
 Please open the `grizzly_issf.Rproj` file to start RStudio before opening individual code files to ensure that relative file paths in the code work correctly.
 
 
-Here is a list of script files with descriptions:
+Here is a list of script files with descriptions: 
+
 `1a. fit_issf_spring.R` – Fit the final integrated step-selection function (iSSF) for the spring season. 
 
 `1b. fit_issf_summer.R` – Fit the final iSSF for the summer season. 
 
-`1c.fit_issf_summer.R` – Fit the final iSSF for the fall season. 
+`1c. fit_issf_summer.R` – Fit the final iSSF for the fall season. 
 
 `2. simulate_from_issf.R` – Simulate a utilization distribution from the fitted spring season iSSF model. 
 
