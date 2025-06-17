@@ -24,17 +24,17 @@
 
 ## Load packages
 sapply(
-  c("glmmTMB", "stringr", "tidyselect", "tidyr", "dplyr"), 
+  c("stringr", "tidyr", "dplyr"), 
   require, character.only = T)
 
 # Main function
 sim_coef_ran <-
   function(m_season, n) {
     
-    # Get the fixed effects coefficients  
+    # Import the saved fixed effects coefficients from the fitted iSSF
     mu_fixed <- readRDS(stringr::str_c("outputs/models/fixef_", m_season, ".rds"))
     
-    # Get the full variance-covariance matrix from the model
+    # Import the saved full variance-covariance matrix from the fitted iSSF
     sig_temp <- readRDS(stringr::str_c("outputs/models/vcov_", m_season, ".rds"))
     
     # Extract the names of all the random effects
@@ -62,24 +62,24 @@ sim_coef_ran <-
     # Rename the random slopes to match the fixed effects
     names_clean <- 
       coefs_raw %>% 
-      dplyr::select(tidyselect::contains("theta")) %>% 
+      dplyr::select(dplyr::contains("theta")) %>% 
       colnames() %>% 
       stringr::str_sub(., 9, -6)  
     
     # Sum the coefficients for fixed effects and random slopes for each variable
     # within each set (simulated animal) of coefficients 
   coefs_raw %>% 
-    dplyr::select(!tidyselect::contains("theta")) %>% 
+    dplyr::select(!dplyr::contains("theta")) %>% 
     dplyr::mutate(index = dplyr::row_number()) %>% 
     tidyr::pivot_longer(cols = -index, names_to = "covariate") %>%
     dplyr::bind_rows(., coefs_raw %>%
-                dplyr::select(tidyselect::contains("theta")) %>%
+                dplyr::select(dplyr::contains("theta")) %>%
                 dplyr::rename_with(~ names_clean) %>% 
                 dplyr::mutate(index = dplyr::row_number()) %>% 
                 tidyr::pivot_longer(cols = -index, names_to = "covariate") %>% 
                   # Sets the value of random slope coefficients from movement covariates to 0
                   dplyr::mutate(value = dplyr::if_else(stringr::str_detect(covariate, "log_sl|cos_ta"), 0, value))) %>% 
-    dplyr::mutate(dplyr::across(tidyselect::everything(), ~tidyr::replace_na(., 0))) %>% 
+    dplyr::mutate(dplyr::across(dplyr::everything(), ~tidyr::replace_na(., 0))) %>% 
     dplyr::group_by(index, covariate) %>% 
     dplyr::summarize(coef = sum(value)) %>% 
     tidyr::pivot_wider(names_from = "covariate", values_from = "coef") %>% 
