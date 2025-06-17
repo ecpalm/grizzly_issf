@@ -487,7 +487,7 @@ path_mega <- foreach::foreach(yyy=iseq, .combine = rbind,
                           x = NA,
                           y = NA,
                           direction_prev = direction) %>% 
-            dplyr::select(all_of(names(tmp_0)))
+            dplyr::select(dplyr::all_of(names(tmp_0)))
           
           # use tmp_0 in next iteration at top of loop
           tmp_0 <- tmp_5  
