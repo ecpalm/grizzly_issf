@@ -24,7 +24,7 @@
 
 # Load packages
 sapply(
-  c("glmmTMB", "dplyr"), 
+  c("glmmTMB", "dplyr", "stringr"), 
   require, character.only = T)
 
 # Load input data frame (location coordinates omitted)
