@@ -154,8 +154,9 @@ system.time(
     # to a high value (log(1e3)), while all 20 of the random slopes get a 0. This is from Muff et al. 2020. 
     # Adjust the 20s in both arguments to whatever number of random slopes you have in the model.
     data = filter(df_issf_scaled, season == "fall"), family = poisson,
-    map=list(theta=factor(c(NA, 1:20))), start=list(theta=c(log(1e3), rep(0, 20))),
-    control=glmmTMBControl(parallel=nt))
+    map = list(theta = factor(c(NA, 1:20))), 
+    start = list(theta = c(log(1e3), rep(0, 20))),
+    control = glmmTMBControl(parallel = nt))
 )
 
 # Save the model - very large file size
@@ -163,8 +164,8 @@ system.time(
 
 # Save fixed effects coefficients
 glmmTMB::fixef(m)$cond %>% 
-  saveRDS(stringr::str_c("outputs/models/fixef_", m_season, ".rds"))
+  saveRDS(., stringr::str_c("outputs/models/fixef_", m_season, ".rds"))
 
 # Save full variance-covariance matrix
 vcov(m, full = T) %>% 
-  saveRDS(stringr::str_c("outputs/models/vcov_", m_season, ".rds"))
+  saveRDS(., stringr::str_c("outputs/models/vcov_", m_season, ".rds"))
