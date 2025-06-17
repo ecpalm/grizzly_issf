@@ -6,7 +6,7 @@ This repository includes data and code for reproducing analyses in the following
 by Eric Palm, Clayton Apps, Tal Avgar, Melanie Dickie, Bruce McLellan, Joseph Northrup, Michael Sawaya, Julie Turner, Jesse Whittington, Erin Landguth, Katherine Zeller, Clayton Lamb.
 
 
-Please open the `grizzly_issf.Rproj` file to start RStudio before opening individual code files to ensure that relative file paths in the code work correctly.
+Please open the `grizzly_issf.Rproj` file to start RStudio before opening individual scripts to ensure that relative file paths in the code work correctly.
 
 
 Here is a list of script files with descriptions: 
