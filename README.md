@@ -5,7 +5,7 @@ This repository includes data and code for reproducing analyses in the following
 **"Changing grizzly bear space use and functional connectivity in response to human disturbance in the southern Canadian Rocky Mountains"**
 by Eric Palm, Clayton Apps, Tal Avgar, Melanie Dickie, Bruce McLellan, Joseph Northrup, Michael Sawaya, Julie Turner, Jesse Whittington, Erin Landguth, Katherine Zeller, Clayton Lamb.
 
-DOI: 10.5281/zenodo.15685562
+DOI: https://doi.org/10.5281/zenodo.15685561
 
 
 Please open the `grizzly_issf.Rproj` file to start RStudio before opening individual scripts to ensure that relative file paths in the code work correctly.
