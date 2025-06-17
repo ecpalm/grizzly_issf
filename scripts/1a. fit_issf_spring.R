@@ -160,10 +160,10 @@ system.time(
     # The NA in the 'start' argument tells it to fix the variance of that random intercept 
     # to a high value (log(1e3)), while all 24 of the random slopes get a 0. This is from Muff et al. 2020. 
     # Adjust the 24s in both arguments to whatever number of random slopes you have in the model.
-    data = filter(df_issf_scaled, season == m_season), family = poisson,
+    data = dplyr::filter(df_issf_scaled, season == m_season), family = poisson,
     map = list(theta = factor(c(NA, 1:24))), 
     start = list(theta = c(log(1e3), rep(0, 24))),
-    control = glmmTMBControl(parallel = nt))
+    control = glmmTMB::glmmTMBControl(parallel = nt))
 )
 
 # Save the model - very large file size
